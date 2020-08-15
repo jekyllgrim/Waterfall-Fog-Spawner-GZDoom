@@ -1,4 +1,4 @@
-Waterfall Fog Spawner for GZDoom by Agent_Ash (aka Jekyll Grim Payne)
+## Waterfall Fog Spawner for GZDoom by Agent_Ash (aka Jekyll Grim Payne)
 
 This asset contains ZScript code for waterfall fog spawner, meant to be placed at the bottom of waterfalls.
 
@@ -6,7 +6,7 @@ Feel free to use this in your maps. Credits are appreciated but not required.
 
 Sprites are made from free resources available online. Feel free to replace them if you like.
 
-How to use in your map:
+## How to use in your map
 
 - Place thing 20100 `WaterfallFogSpawner` at the edge of your waterfall (where the fall connects with the body of water underneath)
 - Make sure `WaterfallFogSpawner` angle is set so that it's facing *alongside* the waterfall line
