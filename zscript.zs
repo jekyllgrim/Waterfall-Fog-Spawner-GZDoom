@@ -5,6 +5,7 @@ Class WaterfallFogSpawner : Actor {
 	private int wwidth;
 	private int trans;
 	private double wscale;
+	private int wsparsity;
 	static const name WFSWaterTranslations[] = {
 		"", "RedWater", "GreenWater", "GoldWater", "PurpleWater", "OrangeWater", "WhiteWater"
 	};
@@ -24,7 +25,8 @@ Class WaterfallFogSpawner : Actor {
 	override void PostBeginPlay() {
 		super.PostBeginPlay();		
         bDORMANT = (SpawnFlags & MTF_DORMANT);
-		wwidth = Clamp(args[0],0,1024) / 16;
+		wsparsity = (args[3] == 0) ? 16 : Clamp(args[3],4,64);
+		wwidth = Clamp(args[0],0,1024) / wsparsity;
 		trans = Clamp(args[1],0,5);
 		wscale = Clamp(args[2],1,7);
 		for (int i = 0; i < maxFogVelSeed; i++)
@@ -54,11 +56,11 @@ Class WaterfallFogSpawner : Actor {
 			if (fog) {
 				fog.A_SetTranslation(WFSWaterTranslations[trans]);
 				fog.scale = (0.15,0.15) * wscale;
-				fog.Warp(self,16 * steps);
+				fog.Warp(self,wsparsity * steps);
 				//fogVelSeed = (fogVelSeed > maxFogVelSeed) ? 0 : fogVelSeed++;
 				//fogPosSeed = (fogPosSeed > maxFogPosSeed) ? 0 : fogPosSeed++;
-				fog.vel = FogVel[random[fog](0,fogVelSeed)];
-				fog.SetOrigin(fog.pos + FogPos[random[fog](0,fogPosSeed)],false);	
+				fog.vel = FogVel[random[fog](0,maxFogVelSeed)];
+				fog.SetOrigin(fog.pos + FogPos[random[fog](0,maxFogPosSeed)],false);	
 			}
 		}
 	}
