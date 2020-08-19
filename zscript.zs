@@ -31,8 +31,8 @@ Class WaterfallFogSpawner : Actor {
 			FogVel[i] = (frandom[fog](-0.8,0.8),frandom[fog](-0.8,0.8),frandom[fog](0.6,1.4));
 		for (int i = 0; i < maxFogPosSeed; i++)
 			FogPos[i] = (frandom[fog](-8,8)*wscale,frandom[fog](-8,8),frandom[fog](-8,8));
-		fogVelSeed = random[fog](0,maxFogVelSeed);
-		fogPosSeed = random[fog](0,maxFogPosSeed);
+		//fogVelSeed = random[fog](0,maxFogVelSeed);
+		//fogPosSeed = random[fog](0,maxFogPosSeed);
 	}	
     override void Activate(Actor activator) {
         Super.Activate(activator);
