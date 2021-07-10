@@ -27,3 +27,5 @@ Sprites are made from free resources available online. Feel free to replace them
 **Argument 3**: Scales the size of the splashes from x1 to x8 (higher values will look the same as x8). `0` (default) is interpreted as `1`. Note that scale will affect visible size, so at high values you might want to reduce the value of Argument #1.
 
 **Argument #4**: Density. Determines how many particles will be spawned along the waterfall's length. For example, if your waterfall is 128 units long and argument 4 is `8`, a waterfall fog particle will be spawned every 8 units along its length, meaning 16 in total. The default value is `1` and it usually works, but if you use higher scale values (argument #3), then you might want to reduce the density. **Remember**: higher values = *less* dense waterfall.
+
+See demonstration map (attached in the releases tab) to see some examples.
