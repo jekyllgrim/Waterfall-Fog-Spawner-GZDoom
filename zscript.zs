@@ -134,7 +134,7 @@ Class WaterfallFog : Actor {
 	override void PostBeginPlay() {
 		super.PostBeginPlay();
 		roll = frandom[fog](-40,40);
-		frame = random[fog](0,3);
+		frame = random[fog](0,4);
 		wroll = frandom[fog](-2.4,2.4);
 		doTic = 1;
 	}	
