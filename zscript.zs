@@ -109,6 +109,7 @@ Class WaterfallFog : Actor {
 		renderstyle 'Translucent';
 		alpha 0.32;
 		gravity 0.15;
+		FloatBobPhase 0;
 		+ROLLSPRITE
 		+FORCEXYBILLBOARD
 		+NOINTERACTION
