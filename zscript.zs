@@ -16,6 +16,7 @@ Class WaterfallFogSpawner : Actor {
 		+DONTBLAST
 		radius 8;
 		height 16;
+		FloatBobPhase 0;
 	}
 	/*	Built-in CheckSight() has an RNG call if the
 		dest actor has 0 alpha of bINVISIBLE, which can 
@@ -37,7 +38,7 @@ Class WaterfallFogSpawner : Actor {
 		completely non-interactive.
 		Returns 0 if sight check fails.
 	*/
-	int CheckPlayerVisibility() {
+	double CheckPlayerVisibility() {
 		PlayerInfo player = players[consoleplayer];
 		if (player && player.mo && SimpleCheckSight(player.mo))
 			return Distance3D(player.mo);
