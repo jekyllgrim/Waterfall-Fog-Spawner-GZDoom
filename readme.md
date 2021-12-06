@@ -28,4 +28,6 @@ Sprites are made from free resources available online. Feel free to replace them
 
 **Argument #4**: Density. Determines how many particles will be spawned along the waterfall's length. For example, if your waterfall is 128 units long and argument 4 is `8`, a waterfall fog particle will be spawned every 8 units along its length, meaning 16 in total. The default value is `1` and it usually works, but if you use higher scale values (argument #3), then you might want to reduce the density. **Remember**: higher values = *less* dense waterfall.
 
+**Arguemtn #5**: *Force animation*. If this is any number other than 0, the waterfall will ignore distance checks and will always animate. **Use with caution!** This is meant for waterfalls that can't be directly visible, such as placed inside skyboxes. Manual activation/deactivation is recommended for this use case.
+
 See demonstration map (attached in the releases tab) to see some examples.

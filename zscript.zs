@@ -6,6 +6,7 @@ Class WaterfallFogSpawner : Actor {
 	private int trans;
 	private int wscale;
 	private int wdensity;
+	bool alwaysAnimate;
 	const visCheckTics = 8;
 	static const name WFSWaterTranslations[] = {
 		"", "RedWater", "GreenWater", "GoldWater", "PurpleWater", "OrangeWater", "WhiteWater"
@@ -14,9 +15,9 @@ Class WaterfallFogSpawner : Actor {
 		+NOINTERACTION
 		+SYNCHRONIZED
 		+DONTBLAST
+		FloatBobPhase 0;
 		radius 8;
 		height 16;
-		FloatBobPhase 0;
 	}
 	/*	Built-in CheckSight() has an RNG call if the
 		dest actor has 0 alpha of bINVISIBLE, which can 
@@ -39,11 +40,15 @@ Class WaterfallFogSpawner : Actor {
 		Returns 0 if sight check fails.
 	*/
 	double CheckPlayerVisibility() {
+		// If this is true, ignore sight check and always return
+		// the smallest sensible value
+		if (alwaysAnimate)
+			return 256;
 		PlayerInfo player = players[consoleplayer];
 		if (player && player.mo && SimpleCheckSight(player.mo))
 			return Distance3D(player.mo);
 		return 0;
-	}	
+	}
 	override void PostBeginPlay() {
 		super.PostBeginPlay();		
         bDORMANT = (SpawnFlags & MTF_DORMANT); //preserve DORMANT as set in the map editor
@@ -51,6 +56,7 @@ Class WaterfallFogSpawner : Actor {
 		trans = Clamp(args[1],0,5); //argument #2: waterfall color (blue by default)
 		wscale = Clamp(args[2],1,7); //argument #3: scale of waterfall particles
 		wdensity = Clamp(args[3], 1, wwidth); //argument #4: density of particles
+		alwaysAnimate = Clamp(args[4], 0, 1); //argument #5: skip distance check if not 0
 		
 		int steps = wwidth / wdensity; //get total number of particles by dividing width by density
 		double startOfs = -(wwidth / 2);
@@ -144,7 +150,7 @@ Class WaterfallFog : Actor {
 			Destroy();
 			return;
 		}
-		if (wspawner.bDORMANT || wspawner.visDist <= 0)
+		if (wspawner.bDORMANT || (!wspawner.alwaysAnimate && wspawner.visDist <= 0))
 			return;
 		//the animation will be executed less often for every 256 units the player is away from the waterfall:
 		doTic = Clamp(wspawner.visDist / 256, 1, 80);
