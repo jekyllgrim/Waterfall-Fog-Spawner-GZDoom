@@ -1,7 +1,7 @@
 version "4.2.4"
 
 Class WaterfallFogSpawner : Actor {
-	int visDist;
+	double visDist;
 	private int wwidth;
 	private int trans;
 	private int wscale;
