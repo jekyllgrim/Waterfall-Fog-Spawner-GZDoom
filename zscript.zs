@@ -1,6 +1,7 @@
 version "4.2.4"
 
 Class WaterfallFogSpawner : Actor {
+	
 	double visDist;
 	private int wwidth;
 	private int trans;
@@ -12,6 +13,23 @@ Class WaterfallFogSpawner : Actor {
 		"", "RedWater", "GreenWater", "GoldWater", "PurpleWater", "OrangeWater", "WhiteWater"
 	};	
 	Default {
+		//$Title "Watefall fog spawner"
+		//$Angled
+		//$Category "Decoration"
+		//$Arg0 "Length"
+		//$Arg0Tooltip "Make this equal to the length of the linedef next to which the spawner is placed"
+		//$Arg1 "Color"
+		//$Arg1Type 11
+		//$Arg1Enum { 0 = "Blue"; 1 = "Red"; 2 = "Green"; 3 = "Yellow"; 4 = "Purple"; 5 = "Dark orange"; 6 = "White"; }
+		//$Arg2 "Scale"
+		//$Arg2Type 11
+		//$Arg2Enum { 1 = "x1"; 2 = "x2"; 3 = "x3"; 4 = "x4"; 5 = "x5"; 6 = "x6"; 7 = "x7"; 8 = "x8"; }
+		//$Arg3 "Density"
+		//$Arg3Tooltip "Determines the gap between water splash emitters.\nThe higher the number, the LESS dense the waterfall is.\nUsually 1 is OK, but you may use higher numbers if you use large scale.\n(0 is interpreted as 1.)"
+		//$Arg4 "Ignore distance/visibility checks"
+		//$Arg4Type 11
+		//$Arg4Tooltip "If true, will animate regardless of visibility or distance to the player.\nUse with caution! May cause performance issues with many waterfalls."
+		//$Arg4Enum { 0 = "False"; 2 = "True"; }	
 		+NOINTERACTION
 		+SYNCHRONIZED
 		+DONTBLAST
