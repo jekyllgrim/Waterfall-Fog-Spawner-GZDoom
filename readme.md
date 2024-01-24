@@ -12,6 +12,8 @@ Sprites are made from free resources available online. Feel free to replace them
 - Make sure `WaterfallFogSpawner` thing is facing towards or away from the waterfall (not alongside it; that was used in older versions)
 - Open `WaterfallFogSpawner`'s properties in Doom Builder, navigate to **Action / Tag/ Misc.** tab to access arguments. Changing the arguments will affect the fog's appearance in the following ways:
 
+### Arguments
+
 **Argument 1**: Determines the length of the line along which the effects will spawn. Use the same value as your waterfall's linedef length. 0 (default) will make it spawn over a small area (useful for small water pillars and such).
 
 **Argument 2**: Determines the color of the splashes:
@@ -30,4 +32,13 @@ Sprites are made from free resources available online. Feel free to replace them
 
 **Arguemtn #5**: *Force animation*. If this is any number other than 0, the waterfall will ignore distance checks and will always animate. **Use with caution!** This is meant for waterfalls that can't be directly visible, such as placed inside skyboxes. Manual activation/deactivation is recommended for this use case.
 
+### User fields
+These can be set up in the Custom tab of the properties of the Waterfall Fog Spawner:
+1. `user_rendermode` — determines if this spawner will use textured particles (low performance impact) or actors. The default value of 0 is textured particles, other values are actors.
+2. `user_color` — lets you specify an RRGGBB color (for example "FF0000"). If set, this overrides argument #2 and instead gives the particles a custom color.
+
 See demonstration map (attached in the releases tab) to see some examples.
+
+## Credits and permissions
+Waterfall Fog Spawner by Agent_Ash aka Jekyll Grim Payne
+Free to use with credit.
