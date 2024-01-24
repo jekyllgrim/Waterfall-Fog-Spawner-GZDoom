@@ -1,3 +1,4 @@
-DoomEdNums {
+DoomEdNums
+{
 	20100 = WaterfallFogSpawner
 }
